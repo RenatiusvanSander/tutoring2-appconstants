@@ -12,7 +12,9 @@
 	<properties>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
+		<maven.jar.version>3.4.1</maven.jar.version>
 		<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+		<library.author>ReMad</library.author>
 		<encoding>UTF-8</encoding>
 	</properties>
 	<!-- ################# -->
@@ -25,21 +27,45 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>${maven.compiler.plugin.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>${maven.jar.version}</version>
+		</dependency>
 	</dependencies>
 
 	<!-- ###################### -->
 	<!-- start of build section -->
 	<!-- ###################### -->
 	<build>
-		<finalName>tutoring2</finalName>
+		<finalName>tutoring2-appconstants</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
+					<encoding>${encoding}</encoding>
 					<source>${maven.compiler.target}</source>
 					<target>${maven.compiler.source}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+						<manifestEntries>
+							<mode>production</mode>
+							<Built-By>${library.author}</Built-By>
+						</manifestEntries>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
