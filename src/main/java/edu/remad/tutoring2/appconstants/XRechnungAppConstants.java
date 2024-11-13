@@ -27,4 +27,10 @@ public final class XRechnungAppConstants {
 	public static final String XRECHNUNG_SENDER_VAT_ID = "xRechnungSenderVatId";
 	
 	public static final String XRECHNUNG_SENDER_LEITWEG_ID = "xRechnungSenderLeitwegId";
+	
+	public static final String XRECHNUNG_SENDER_COUNTRY_CODE = "xRechnungSenderCountryCode";
+	
+	public static final String XRECHNUNG_SENDER_COUNTRY = "xRechnungSenderCountry";
+	
+	public static final String XRECHNUNG_RECIPIENT_CUSTOM_VAT = "xRechnungRecipientCustomVat";
 }
